@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:0.5.0.M4")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'dusknode'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:0.5.0.M4")
+    compile("org.springframework.data:spring-data-redis:1.0.6.RELEASE")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile("org.hibernate:hibernate-validator:4.3.1.Final")
+    compile("org.thymeleaf:thymeleaf-spring3:2.0.16")
+    compile("org.springframework.data:spring-data-mongodb:1.2.1.RELEASE")
+    compile("org.jsoup:jsoup:1.7.2")
+    testCompile("org.springframework:spring-test:3.2.3.RELEASE")
+    testCompile("junit:junit:4.11")
+    testCompile("org.mockito:mockito-core:1.9.5")
+}
+
+test {
+  testLogging {
+    // Show that tests are run in the command-line output
+    events 'started', 'passed'
+  }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.8'
+}

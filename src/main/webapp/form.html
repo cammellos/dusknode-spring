@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <form action="#" th:action="@{/documents}" th:object="${documentUrl}" method="post">
+            <table>
+                <tr>
+                    <td>Url</td>
+                    <td><input type="text" th:field="*{url}" /></td>
+                    <td><div id="errors" th:text="${error}" /></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
