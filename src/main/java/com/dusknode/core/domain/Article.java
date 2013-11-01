@@ -13,7 +13,7 @@ public class Article {
    private String frontPageContent;
    private String fullContent;
    private int visibility;
-   private Date firstSeen;
+   private Date date;
    private Date lastSeen;
 
 
@@ -48,4 +48,13 @@ public class Article {
    public void setVisibility(int visibility) {
       this.visibility = visibility;
    }
+
+  public void setDate(Date date) {
+    this.date = date;
+  }
+  public Date getDate() {
+    return this.date;
+  }
+
+
 }

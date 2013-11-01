@@ -6,7 +6,10 @@ import com.dusknode.services.ArticleProcessor;
 import com.dusknode.services.Selector;
 import com.dusknode.services.SelectorsList;
 
+import com.dusknode.persistence.Repository;
+
 import java.util.ArrayList;
+
 public class BbcParser implements Parser {
 
    private static final String url = "http://www.bbc.co.uk/news";
@@ -21,6 +24,7 @@ public class BbcParser implements Parser {
         System.out.println(article.getTitle());
         System.out.println(article.getFrontPageContent());
         System.out.println(article.getVisibility());
+        Repository.saveArticle(article);
         //System.out.println(article.getFirstSeen());
         //System.out.println(article.getLastSeen());
       }

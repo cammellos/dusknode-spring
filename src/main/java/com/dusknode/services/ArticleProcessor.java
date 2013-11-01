@@ -7,6 +7,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class ArticleProcessor {
@@ -45,6 +46,7 @@ public class ArticleProcessor {
       article.setTitle(extractText(selector.getTitleSelector()));
       article.setFrontPageContent(extractText(selector.getFrontPageContentSelector()));
       article.setVisibility(selector.getVisibility());
+      article.setDate(new Date());
       return article;
    }
 }
